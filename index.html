@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brayen's 21st Birthday</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Extra responsive adjustments */
+    @media (max-width: 600px) {
+      body {
+        font-size: 16px;
+      }
+
+      .container {
+        padding: 40px 15px;
+      }
+
+      h1, h2, h3 {
+        font-size: 1.4em;
+      }
+
+      p {
+        font-size: 16px;
+        padding: 0 5px;
+      }
+
+      .memory-img {
+        width: 95%;
+      }
+
+      button {
+        width: 90%;
+        padding: 12px;
+        font-size: 15px;
+      }
+
+      .voucher-box {
+        width: 95%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="audio/birthday.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- START PAGE BUTTON -->
+  <div id="start-page">
+    <div class="container">
+      <h1>Welcome to Brayen's 21st Birthday Celebration 🎉</h1>
+      <button id="start-btn" onclick="startSite()">Start the Celebration</button>
+    </div>
+  </div>
+
+  <!-- PAGE 1: Greeting -->
+  <div id="page1" class="page" style="display:none">
+    <div class="container">
+      <h1>Brayen's 21st Birthday</h1>
+      <p>Happy Birthday, my love.</p>
+      <p>Thank you for always being there — in every step, every season, every silent moment, and every celebration. You’ve been my constant light, my safe place, and my greatest strength.</p>
+      <p>Let’s keep growing together — hand in hand — chasing dreams, building a life filled with love, meaning, and endless joy.</p>
+      <p>I pray for your health, your happiness, and your every heart’s desire to come true — one by one, in the most beautiful ways.</p>
+      <p>May your 21st year be filled with breakthroughs, peace, and unforgettable moments. Let this be the year your wings stretch wider and your heart shines brighter.</p>
+      <p>I’m so proud of who you are and who you’re becoming. And I’ll be here — cheering you on, loving you deeper, every single day.</p>
+
+      <button onclick="showPage('page2')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10 17l5-5-5-5v10z" />
+          <path d="M0 24V0h24v24H0z" fill="none" />
+        </svg>
+        View Our Memories
+      </button>
+    </div>
+  </div>
+
+  <!-- PAGE 2: Memories -->
+  <div id="page2" class="page" style="display:none">
+    <div class="container">
+      <h2>Our Memories</h2>
+      <h3>2021</h3>
+      <img src="images/foto2021.jpg" class="memory-img" alt="2021" />
+      <h3>2022</h3>
+      <img src="images/foto2022.jpg" class="memory-img" alt="2022" />
+      <h3>2023</h3>
+      <img src="images/foto2023.jpg" class="memory-img" alt="2023" />
+      <h3>2024</h3>
+      <img src="images/foto2024.jpg" class="memory-img" alt="2024" />
+      <h3>2025</h3>
+      <img src="images/foto2025.jpg" class="memory-img" alt="2025" />
+
+      <button onclick="showPage('page3')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10 17l5-5-5-5v10z" />
+          <path d="M0 24V0h24v24H0z" fill="none" />
+        </svg>
+        View Extra Gifts
+      </button>
+    </div>
+  </div>
+
+  <!-- PAGE 3: Gifts -->
+  <div id="page3" class="page" style="display:none">
+    <div class="container">
+      <h2>Extra Gifts For My Love</h2>
+      <div class="voucher-box">
+        <h3>🎉 Birthday Special Coupon 🎉</h3>
+        <p>Rp 1.000.000</p>
+        <p>Use it for anything that brings you joy —<br />
+          a fun day, your favorite food, or maybe even some new car parts to upgrade your ride.<br />
+          Because there’s no better way to say <em>“I love you”</em> than by supporting what you love.</p>
+      </div>
+
+      <div class="voucher-box">
+        <h3>🎉 Birthday Special Coupon 🎉</h3>
+        <p>One full day to do whatever you want with me 💖</p>
+      </div>
+
+      <button onclick="showPage('page1')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10 17l5-5-5-5v10z" />
+          <path d="M0 24V0h24v24H0z" fill="none" />
+        </svg>
+        Back to Start
+      </button>
+    </div>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader">Loading...</div>
+
+  <script>
+    function startSite() {
+      const audio = document.getElementById('bg-music');
+      audio.play().catch(err => console.log("Audio error:", err));
+
+      document.getElementById('start-page').style.display = 'none';
+      document.getElementById('page1').style.display = 'block';
+    }
+
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+      const loader = document.getElementById('loader');
+      if (loader) loader.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
